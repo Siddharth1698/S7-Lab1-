@@ -1,12 +1,8 @@
-// Finite Automata that identifies the keywords : if, for, while
-
-
 #include <stdbool.h> 
 #include <stdio.h> 
 #include <string.h> 
 #include <stdlib.h> 
   
-// Returns 'true' if the character is a DELIMITER. 
 bool isDelimiter(char ch) 
 { 
     if (ch == ' ' || ch == '+' || ch == '-' || ch == '*' ||  
@@ -52,7 +48,7 @@ bool isKeyword(char* str)
         || !strcmp(str, "short") || !strcmp(str, "typedef") 
         || !strcmp(str, "switch") || !strcmp(str, "unsigned") 
         || !strcmp(str, "void") || !strcmp(str, "static") 
-        || !strcmp(str, "struct") || !strcmp(str, "goto")) 
+        || !strcmp(str, "struct") || !strcmp(str, "goto") || !strcmp(str, "for") ) 
         return (true); 
     return (false); 
 } 
@@ -150,14 +146,28 @@ void parse(char* str)
     return; 
 } 
   
+      #define MAXCHAR 1000
+ 
+
 // DRIVER FUNCTION 
 int main() 
 { 
-     
-    char str[100] = "int a = b + 1c; "; 
-  
-    parse(str);
+
+     FILE *fp;
+    char str[MAXCHAR];
+    char* filename = "test.txt";
+ 
+    fp = fopen(filename, "r");
+    if (fp == NULL){
+        printf("Could not open file %s",filename);
+        return 1;
+    }
+    while (fgets(str, MAXCHAR, fp) != NULL)
+         parse(str);
+   
+   
+ fclose(fp);
+   
   
     return (0); 
 } 
-
