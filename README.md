@@ -13,4 +13,3 @@ NOTE : Ensure that you have a file named 'test1.txt' before executing
 
 ## Program 4 : program4.c
 - construct a finite automata which will identify the keywords like : if, for, while, do, else and identifiers from a file
-NOTE : Ensure that you have a file named 'test2.txt' before executing which consists a C program
