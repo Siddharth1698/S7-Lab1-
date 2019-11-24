@@ -37,8 +37,16 @@ void S(){
     }
     else
     {
-     if(i==0)A();
-     else {output[j]='A';output[j+1]='S';output[j+2]='B';output[j+3]='B';printf("\n %s",output);A();}
+     if(i==0){
+         A();
+     }
+        else {
+            output[j]='A';
+            output[j+1]='S';
+            output[j+2]='B';
+            output[j+3]='B';
+            printf("\n %s",output);A();
+        }
      S();
      B();
     }
